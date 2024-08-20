@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit_core>=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "resizewin"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+requires-python = ">=3.8"
+dynamic = ["version", "description"]
+
+[[project.authors]]
+name = "Eugene Kim"
+email = "ek@karma3labs.com"
+
+[project.urls]
+Source = "https://github.com/Karma3Labs/resizewin"
+
+[project.scripts]
+resizewin = "resizewin:main"
