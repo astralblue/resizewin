@@ -76,10 +76,10 @@ class TTYAttributes(NamedTuple):
         >>> before = TTYAttributes(*termios.tcgetattr(sys.stdin))
         >>> after = before.patch(iflag=[~termios.ISTRIP],
         ...                      lflag=[termios.ICANON],
-        ...                      cc={termios.VINTR: b'\003'})
+        ...                      cc={termios.VINTR: b'\\003'})
         >>> assert after.iflag & termios.ISTRIP == 0
         >>> assert after.lflag & termios.ICANON == termios.ICANON
-        >>> assert after.cc[termios.VINTR] == b'\003'
+        >>> assert after.cc[termios.VINTR] == b'\\003'
 
         To patch multi-bit flags, clear its mask first then set bits,
         e.g. in order to set character size to 8 bits:
