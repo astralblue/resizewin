@@ -31,7 +31,7 @@ from contextlib import contextmanager
 from enum import Enum
 from typing import NamedTuple, Optional, Self
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 _logger = logging.getLogger(__name__)
 
