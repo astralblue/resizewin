@@ -43,7 +43,7 @@ class TTYAttributes(NamedTuple):
     """Terminal attributes.
 
     It is a simple named tuple that wraps the list returned/expected
-    by `termios.tcgetattr()`/`termios.tcsetattr()` respectively.
+    by `termios.tcgetattr` and `termios.tcsetattr` respectively.
     """
     iflag: int
     oflag: int
@@ -65,10 +65,10 @@ class TTYAttributes(NamedTuple):
 
         Flag patches are given as an iterable of int,
         either positive (to set) or negative (to clear),
-        e.g. termios.ICANON or ~termios.ISTRIP.
+        e.g. ``termios.ICANON`` or ``~termios.ISTRIP``.
         Bitwise-OR positive patches; bitwise-AND negatives.
 
-        Leave `self` intact; return a copy with modified attributes.
+        Leave ``self`` intact; return a copy with modified attributes.
 
         Example to enable 8-bit canonical mode and set Ctrl-C as interrupt key:
 
@@ -136,7 +136,7 @@ def tcattr_saved(
     """Save/restore terminal attributes upon enter/exit.
 
     :param fd: the terminal; if `None` (default), use `sys.stdin`.
-    :param when: when to restore attributes.  See `termios.tcgetattr()`.
+    :param when: when to restore attributes.  See `termios.tcgetattr`.
     :return: (a context manager that yields) the current attributes.
     """
     fd, when = _fd_when(fd, when)
@@ -157,7 +157,7 @@ RAW_PATCH = dict(
     lflag={~termios.ISIG, ~termios.ICANON, ~termios.XCASE},
     cc={termios.VMIN: 1, termios.VTIME: 0},
 )
-"""Raw terminal attributes, usable as kwargs of `TTYAttribute.patch()`."""
+"""Raw terminal attributes, usable as kwargs of `TTYAttributes.patch`."""
 
 _SETUP_PATCH = dict(
     lflag=[~termios.ECHO],
@@ -215,7 +215,7 @@ def get_terminal_size(
     """Detect the terminal size.
 
     :param fd: the terminal; if `None` (default), use `sys.stdin`.
-    :param when: when to restore attributes.  See `termios.tcgetattr()`.
+    :param when: when to restore attributes.  See `termios.tcgetattr`.
     :return: the number of rows and columns.
     """
     fd, when = _fd_when(fd, when)

@@ -31,6 +31,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 language = 'en'
 
+default_role = 'any'
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
