@@ -23,6 +23,7 @@ release = resizewin.__version__
 
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
 ]
 
 templates_path = ['_templates']
@@ -35,3 +36,10 @@ language = 'en'
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
+
+# -- Options for intersphinx extension ---------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+}
